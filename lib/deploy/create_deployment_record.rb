@@ -5,6 +5,10 @@ end
 if Capistrano::Configuration.instance
   Capistrano::Configuration.instance.load do
 
+    after 'deploy:update' do
+      deploy.create_deployment_record
+    end
+
     namespace :deploy do
       task :create_deployment_record do
         require 'net/http'
