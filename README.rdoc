@@ -1,6 +1,20 @@
 = create_deployment_record
 
-Description goes here.
+A Capistrano recipe to symlink shared files e.g. config/database.yml
+stored in shared path to release path.
+
+== Install
+
+    gem install create_deployment_record
+
+For Bundler, add this to your <tt>Gemfile</tt>:
+
+    gem 'create_deployment_record'
+
+== Using
+Add the following lines to <tt>config/deploy.rb</tt>:
+
+    require 'create_deployment_record'
 
 == Contributing to create_deployment_record
  
