@@ -14,7 +14,7 @@ if Capistrano::Configuration.instance
         require 'net/http'
         require 'socket'
 
-        branchName = "HEAD"
+        branchName = branch.nil? ? "HEAD" : branch
         availableTags = `git tag`.split( /\r?\n/ )
         haveToShowHash = !availableTags.any? { |s| s.include?(branchName) }
         current_deployed_version = branchName
