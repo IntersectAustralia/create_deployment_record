@@ -29,7 +29,7 @@ if Capistrano::Configuration.instance
         post_args = {'app_name'=>application,
                      'deployer_machine'=>"#{ENV['USER']}@#{Socket.gethostname}",
                      'environment'=>rails_env,
-                     'server_url'=>find_servers[0].to_s,
+                     'server_url'=> find_servers[0].present? ? find_servers[0].to_s : Socket.gethostname,
                      'tag'=> current_deployed_version}
         begin
           print "Sending Post request with args: #{post_args}\n"
