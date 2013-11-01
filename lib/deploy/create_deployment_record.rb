@@ -10,7 +10,7 @@ if Capistrano::Configuration.instance
     end
 
     namespace :deploy do
-      task :create_deployment_record do
+      task :create_deployment_record, on_error: :continue do
         require 'net/http'
         require 'socket'
 
