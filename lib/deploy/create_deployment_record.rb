@@ -25,7 +25,7 @@ if Capistrano::Configuration.instance
           current_deployed_version += " (sha1:" + `git rev-parse --short #{fullBranchName}`.strip + ")"
         end
 
-        server_url = find_servers[0].to_s.eql?("") ? Socket.gethostname : find_servers[0].to_s,
+        server_url = find_servers[0].to_s.eql?("") ? Socket.gethostname : find_servers[0].to_s
 
         url = URI.parse('http://deployment-tracker.intersect.org.au/deployments/api_create')
         post_args = {'app_name'=>application,
